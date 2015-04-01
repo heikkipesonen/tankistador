@@ -1,0 +1,61 @@
+{
+  "status": "ok",
+  "count": 7,
+  "meta": {
+    "count": 7
+  },
+  "data": {
+    "vehicle_crew_roles": {
+      "loader": "Loader",
+      "radioman": "Radio Operator",
+      "driver": "Driver",
+      "gunner": "Gunner",
+      "commander": "Commander"
+    },
+    "tanks_updated_at": 1423650824,
+    "clans_roles": {
+      "diplomat": "Intelligence Officer",
+      "junior_officer": "Junior Officer",
+      "recruiter": "Recruitment Officer",
+      "recruit": "Recruit",
+      "private": "Private",
+      "commander": "Combat Officer",
+      "reservist": "Reservist",
+      "treasurer": "Quartermaster",
+      "vice_leader": "Executive Officer",
+      "personnel_officer": "Personnel Officer",
+      "leader": "Commander"
+    },
+    "languages": {
+      "ru": "Русский",
+      "fr": "Français",
+      "en": "English",
+      "vi": "Tiếng Việt",
+      "de": "Deutsch",
+      "tr": "Türkçe",
+      "ko": "한국어",
+      "zh-cn": "简体中文",
+      "es": "Español",
+      "th": "ไทย",
+      "cs": "Čeština",
+      "pl": "Polski"
+    },
+    "vehicle_types": {
+      "heavyTank": "Heavy Tank",
+      "AT-SPG": "Tank Destroyer",
+      "mediumTank": "Medium Tank",
+      "lightTank": "Light Tank",
+      "SPG": "SPG"
+    },
+    "vehicle_nations": {
+      "usa": "U.S.A.",
+      "france": "France",
+      "ussr": "U.S.S.R.",
+      "china": "China",
+      "uk": "U.K.",
+      "japan": "Japan",
+      "germany": "Germany"
+    },
+    "game_version": "9.6"
+  }
+}

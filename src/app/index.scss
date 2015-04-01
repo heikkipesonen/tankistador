@@ -1,0 +1,271 @@
+$toolbar-width: 64px;
+$toolbar-bg: #343B8C;
+$toolbar-button-height: 64px;
+
+$submenu-width: 128px;
+$submenu-button-height: 64px;
+$submenu-bg: #3E47AB;
+
+$toolbar-button-active-bg: lighten($toolbar-bg, 10);
+$submenu-button-active-bg: lighten($submenu-bg, 10);
+
+$view-background: white;
+
+html {
+  font-weight: 200;
+}
+
+h1,h2,h3,h4,p{
+  font-weight: 200;
+}
+
+[layout=row] {
+  flex-direction: row;
+}
+
+.wrapper{
+  height: 100%;
+  overflow: hidden;
+}
+
+.view-wrapper{
+  position: absolute;
+  top:0;
+  left:0;
+  &.has-toolbar{
+    left:$toolbar-width;
+  }
+  &.has-submenu{
+    left:$submenu-width;
+  }
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  width: auto;
+  height: auto;
+
+  &.scroll-y{
+    overflow-y:auto;
+  }
+}
+
+[view-animate]{
+  position: absolute;
+  top:0;
+  left:0;
+  right: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y:auto;
+  width: auto;
+  height: auto;
+  transition-duration: 0.4s;
+  transform: translate3d(0,0,0);
+  background-color: $view-background;
+  z-index: 9;
+  opacity:1;
+
+  &.ng-leave{
+  }
+
+  &.ng-enter{
+    z-index: 10;
+    transform: translate3d(98%,0,0);
+  }
+
+  &.ng-enter-active{
+    z-index: 10;
+    transform: translate3d(0,0,0);
+  }
+
+  &.ng-leave-active{
+   transform: translate3d(98%,0,0);
+  }
+}
+
+
+.content-wrapper{
+  overflow-y: auto;
+}
+
+.toolbar{
+  list-style: none;
+  padding: 0;
+  margin:0;
+  display: flex;
+  font-weight: 200;
+  font-size: 14px;
+  flex-direction: column;
+  width: $toolbar-width;
+  background-color: $toolbar-bg;
+  color: white;
+  position: relative;
+
+
+  .toolbar-button{
+    position: relative;
+
+    p{
+      margin:0;
+      position: absolute;
+      top: 50%;
+      margin-top: -14px;
+      left:0;
+      width: 100%;
+    }
+
+    float:none;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid lighten($toolbar-bg, 10);
+    height: $toolbar-button-height;
+    text-align: center;
+
+    white-space: nowrap;
+    transition: 0.2s;
+    cursor: pointer;
+
+    &.active, &:hover{
+      background-color: $toolbar-button-active-bg;
+    }
+  }
+
+
+  &.toolbar-submenu{
+    width: $submenu-width;
+    background-color: $submenu-bg;
+
+    .toolbar-button{
+      border-bottom: 1px solid lighten($submenu-bg, 10);
+      height: $submenu-button-height;
+
+      &.active, &:hover{
+        background-color: $submenu-button-active-bg;
+      }
+    }
+  }
+
+  .toolbar-button-vertical{
+    p{
+      transform: rotate(-90deg);
+      font-weight: 200;
+      font-size: 16pt;
+    }
+  }
+}
+
+.header{
+  background-color: #eee;
+  width: 100%;
+  height: auto;
+  color: #333;
+  text-align: center;
+
+  .title{
+    margin:0;
+    font-size: 50pt;
+  }
+
+
+  .motto{
+    font-weight: normal;
+    font-size: 10pt;
+  }
+}
+
+table.list{
+  font-size: 10pt;
+  border: none;
+  width: 100%;
+  border-collapse: collapse;
+
+  th{
+    text-transform: uppercase;
+    font-weight: 200;
+    font-size: 12pt;
+    border-bottom: 1px solid black;
+    padding: 5px 0;
+  }
+
+  td{
+    margin:0;
+    border:0;
+    cellspacing:0;
+    padding: 5px 0;
+  }
+
+}
+
+table.list-players{
+
+
+  td, [ng-click]{
+    transition: 0.4s;
+  }
+
+  td:first-child, td:last-child{
+    text-align: center;
+  }
+
+  [ng-click]{
+    cursor: pointer;
+  }
+  tr:hover td, [ng-click]:hover{
+    background-color: #eee;
+    color:#0500D5;
+  }
+}
+
+.list{
+  list-style-type: none;
+  padding:0;
+  margin:0;
+
+  .list-item{
+
+    &.inline{
+      display: inline-block;
+    }
+    padding: 15px;
+    border: 1px solid #eee;
+    margin: 10px;
+
+    p{
+      margin: 0px 0;
+      font-size: 10pt;
+      color: #999;
+      padding:0;
+    }
+
+    h1,h2,h3,h4{
+      padding:0;
+      margin:5px 0;
+    }
+  }
+}
+
+md-autocomplete{
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  border-bottom: 1px solid blue;
+
+  text-align: center;
+
+  input{
+    text-align: center;
+  }
+
+
+  ul{
+    box-shadow: none;
+  }
+}
+
+.button-search{
+  width: 100%;
+  padding:15px;
+}
+
+// injector
+// endinjector

@@ -1,0 +1,22 @@
+<div flex layout="column" layout-fill>
+<div flex layout="row" layout-align="center center">
+	<div flex="33">
+		<div layout="column" layout-align="center">
+
+	  <md-autocomplete flex
+      md-selected-item="search.clan"
+      md-search-text="search.text"
+      md-items="clan in querySearch(search.text)"
+      md-item-text="clan.name"
+      placeholder="Klen anme"
+      md-floating-label="Klen name">
+      <span md-highlight-text="search.text">{{clan.name}}</span>
+    </md-autocomplete>
+
+		<a ui-sref="root.clan.view.info({clan_id:search.clan.clan_id})">
+			<md-button class="md-primary button-search" ng-disabled="!search.clan.clan_id">OK</md-button>
+		</a>
+		</div>
+	</div>
+</div>
+</div>

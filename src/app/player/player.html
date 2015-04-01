@@ -1,0 +1,37 @@
+ <div flex layout="column">
+  <md-content class="md-padding">
+    <div class="header md-padding" layout layout-align="center">
+      <h3>{{player.nickname}}</h3>
+    </div>
+    <div flex layout="row">
+      <div flex>
+        winrate
+        {{player.statistics.all.wins / player.statistics.all.battles * 100 | number : 2}}
+      </div>
+
+      <div flex>
+        average damage
+        {{player.statistics.all.damage_dealt / player.statistics.all.battles | number : 2}}
+      </div>
+
+      <div flex>
+        average xp
+        {{player.statistics.all.xp / player.statistics.all.battles | number : 0}}
+      </div>
+
+      <div flex>
+        average spotted
+        {{player.statistics.all.spotted / player.statistics.all.battles | number : 0}}
+      </div>
+
+      <div flex>
+        average kills
+        {{player.statistics.all.frags / player.statistics.all.battles | number : 2}}
+      </div>
+
+
+    </div>
+
+
+  </md-content>
+</div>

@@ -1,0 +1,68 @@
+<section layout="row" layout-fill>
+
+  <ul class="toolbar toolbar-left toolbar" layout="column">
+    <li flex ui-sref="root.clan.view.players" ui-sref-active="active" class="toolbar-button toolbar-button-vertical">
+      <p>Pleierers</p>
+    </li>
+  </ul>
+
+	<div class="view-wrapper has-toolbar scroll-y">
+		<md-content class="md-padding">
+			<div flex layout="column">
+
+				<div flex layout="row" layout-align="center">
+					<div class="clan-info">
+					<h2>{{clan.name}} [{{clan.tag}}]</h2>
+					<p>members : {{clan.members.length}}</p>
+					</div>
+				</div>
+
+				<div flex layout="row" layout-fill layout-align="center">
+					<div flex="90">
+						<table class="list list-players">
+							<tr>
+								<th>id</th>
+								<th ng-click="sortBy('account_name')">nick</th>
+								<th ng-click="sortBy('joined_at')">joined</th>
+								<th ng-click="sortBy('logout_at')">last logout</th>
+								<th ng-click="sortBy('role')">role</th>
+								<th ng-click="sortBy('statistics.all.battles')">battles</th>
+								<th ng-click="sortBy('winrate')">winrate</th>
+								<th>cw</th>
+							</tr>
+							<tr ng-repeat="player in clan.members">
+								<td>
+									{{player.account_id}}
+								</td>
+								<td>
+									{{player.account_name}}
+								</td>
+								<td>
+									{{player.joined_at*1000 | date : 'dd.MM.yyyy'}}
+								</td>
+								<td>
+									{{player.logout_at*1000 | date : 'hh:mm:ss, dd.MM.yyyy'}}
+								</td>
+								<td>
+									{{player.role_i18n}}
+								</td>
+								<td>
+									{{player.statistics.all.battles}}
+								</td>
+								<td>
+									{{player.statistics.all.wins / player.statistics.all.battles  * 100 | number : 1}}
+								</td>
+								<td>
+									{{player.statistics.clan.battles}}
+								</td>
+
+							</tr>
+						</table>
+					</div>
+				</div>
+			</div>
+		</md-content>
+  </div>
+
+</section>
+

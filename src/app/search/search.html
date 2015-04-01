@@ -1,0 +1,20 @@
+<div flex layout="row" layout-align="center center">
+	<div flex="33">
+		<div layout="column" layout-align="center">
+
+	  <md-autocomplete flex
+      md-selected-item="search.player"
+      md-search-text="search.text"
+      md-items="player in querySearch(search.text)"
+      md-item-text="player.nickname"
+      placeholder="Pleierer"
+      md-floating-label="Pleierer name">
+      <span md-highlight-text="search.text">{{player.nickname}}</span>
+    </md-autocomplete>
+
+		<a ui-sref="root.player({id:search.player.account_id})">
+			<md-button class="md-primary button-search" ng-disabled="!search.player.account_id">OK</md-button>
+		</a>
+		</div>
+	</div>
+</div>
