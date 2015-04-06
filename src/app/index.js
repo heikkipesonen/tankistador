@@ -10,6 +10,9 @@ angular.module('tankistador',
 	'ngMaterial',
 	'LocalStorageModule'])
 
+  .constant('app_config',{
+    backend:'http://192.168.0.16/projects/tankistador/server'
+  })
 
 
 

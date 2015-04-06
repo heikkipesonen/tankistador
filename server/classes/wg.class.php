@@ -37,11 +37,11 @@ class WG{
 			foreach ($data->data as $id=>$data){
 				$response[] = $data;
 			}
-
+			/*
 			if (count($response) ==1 ){
 				return $response[0];
 			}
-
+			*/
 			return $response;
 		} else if (is_object($data)){
 

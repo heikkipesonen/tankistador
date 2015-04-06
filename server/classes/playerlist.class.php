@@ -6,7 +6,7 @@ class PlayerList{
 	 * list of player ids
 	 * @var Array
 	 */
-	private $players;
+	private $players = array();
 
 
 	/**
@@ -107,6 +107,7 @@ class PlayerList{
 		array_push($fields, 'account_id');
 		array_push($fields, 'clan_id');
 
+
 		$sqlHelper = new SQLHelper('player_statistics',$fields);
 
 		foreach ($this->players as $player) {
@@ -131,7 +132,7 @@ class PlayerList{
 		$fields[] = 'account_id';
 		$fields[] = 'clan_id';
 		$fields[] = 'type';
-
+		$fields[] = 'updated_at';
 		$sqlHelper = new SQLHelper('battle_statistics', $fields);
 
 		foreach ($this->players as $player) {
@@ -142,6 +143,8 @@ class PlayerList{
 					$row->type = $type;
 					$row->account_id = $player->account_id;
 					$row->clan_id = $player->clan_id;
+					$row->updated_at = $player->updated_at;
+
 					$sqlHelper->addRow($row);
 				}
 			}
@@ -160,7 +163,13 @@ class PlayerList{
 		$battles = $this->getBattleSqlString();
 		$players = $this->getPlayerSqlString();
 
-		return ORM::raw_execute( $battles.$players );
+		$success = ORM::raw_execute( $battles.$players );
+
+		if ($success){
+			return array('ok'=>true, 'count'=>count($this->players) );
+		} else {
+			return false;
+		}
 	}
 
 

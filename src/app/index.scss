@@ -1,14 +1,16 @@
 $toolbar-width: 64px;
-$toolbar-bg: #343B8C;
+//$toolbar-bg: #343B8C;
+$toolbar-bg: #1D1D1D;
 $toolbar-button-height: 64px;
+$toolbar-button-hover-bg: lighten($toolbar-bg, 10);
 
 $submenu-width: 128px;
 $submenu-button-height: 64px;
 $submenu-bg: #3E47AB;
 
-$toolbar-button-active-bg: lighten($toolbar-bg, 10);
-$submenu-button-active-bg: lighten($submenu-bg, 10);
-
+$toolbar-button-active-bg: #199BBA; //lighten($toolbar-bg, 10);
+$submenu-button-active-bg: #199BBA; //lighten($submenu-bg, 10);
+$toolbar-button-active-hover-bg: lighten($toolbar-button-active-bg, 10);
 $view-background: white;
 
 html {
@@ -32,6 +34,7 @@ h1,h2,h3,h4,p{
   position: absolute;
   top:0;
   left:0;
+
   &.has-toolbar{
     left:$toolbar-width;
   }
@@ -40,7 +43,7 @@ h1,h2,h3,h4,p{
   }
   right: 0;
   bottom: 0;
-  overflow: hidden;
+
   width: auto;
   height: auto;
 
@@ -62,6 +65,7 @@ h1,h2,h3,h4,p{
   transition-duration: 0.4s;
   transform: translate3d(0,0,0);
   background-color: $view-background;
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
   z-index: 9;
   opacity:1;
 
@@ -79,7 +83,8 @@ h1,h2,h3,h4,p{
   }
 
   &.ng-leave-active{
-   transform: translate3d(98%,0,0);
+   transform: translate3d(30%,0,0);
+   opacity:0;
   }
 }
 
@@ -93,7 +98,9 @@ h1,h2,h3,h4,p{
   padding: 0;
   margin:0;
   display: flex;
-  font-weight: 200;
+  font-weight: 100;
+  text-transform: uppercase;
+
   font-size: 14px;
   flex-direction: column;
   width: $toolbar-width;
@@ -108,6 +115,7 @@ h1,h2,h3,h4,p{
     p{
       margin:0;
       position: absolute;
+      text-align: center;
       top: 50%;
       margin-top: -14px;
       left:0;
@@ -125,9 +133,17 @@ h1,h2,h3,h4,p{
     transition: 0.2s;
     cursor: pointer;
 
-    &.active, &:hover{
-      background-color: $toolbar-button-active-bg;
+    &:hover{
+      background-color: $toolbar-button-hover-bg;
     }
+
+    &.active{
+      background-color: $toolbar-button-active-bg;
+      &:hover{
+        background-color: $toolbar-button-active-hover-bg;
+      }
+    }
+
   }
 
 
@@ -164,6 +180,8 @@ h1,h2,h3,h4,p{
   .title{
     margin:0;
     font-size: 50pt;
+    font-weight: 100;
+    text-transform: uppercase;
   }
 
 

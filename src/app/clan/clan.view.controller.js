@@ -19,6 +19,8 @@ angular.module('tankistador')
     clan:clan,
     lastSort:false,
 
+    perse:'kakka',
+
     sortBy:function(key, inverse){
 
       if ($scope.lastSort === key && inverse === undefined){
